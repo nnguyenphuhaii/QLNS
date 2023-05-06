@@ -1,0 +1,126 @@
+﻿@model QLNS.Models.Nhanvien
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content-inner">
+        <div class="content">
+            <div class="card">
+                <h6 style="font-size: 30px; text-align: center;margin: 15px 0px;color: #0066FF; ">SỬA THÔNG TIN NHÂN VIÊN</h6>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="MaNv" />
+                    <fieldset style="margin: 15px !important;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label asp-for="TenNv" class="form-label">Họ Và Tên</label>
+                                <input asp-for="TenNv" type="text" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="GioiTinh" class="form-label cursor-move">Giới tính</label>
+                                    <select asp-for="GioiTinh" class="form-select" name="GioiTinh">
+                                        <option value="">---</option>
+                                        <option value="1">Nam</option>
+                                        <option value="0">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Email" class="form-label cursor-move">Email</label>
+                                    <input asp-for="Email" type="text" placeholder="abc@gmail.com" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Sdt" class="form-label cursor-move">Số điện thoại</label>
+                                    <input asp-for="Sdt" type="text" placeholder="09(xxx)" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="DiaChi" class="form-label cursor-move">Địa chỉ</label>
+                                    <input asp-for="DiaChi" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="NgaySinh" class="form-label cursor-move">Ngày sinh</label>
+                                    <input asp-for="NgaySinh" class="form-control" type="date" name="NgaySinh">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="NoiSinh" class="form-label cursor-move">Nơi sinh</label>
+                                    <input asp-for="NoiSinh" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Cccd" class="form-label cursor-move">CCCD</label>
+                                    <input asp-for="Cccd" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label asp-for="MaChucVu" class="control-label">Chức Vụ</label>
+                                        <select asp-for="MaChucVu" class="form-control" asp-items="ViewBag.ChucVuList"></select>
+                                        <span asp-validation-for="MaChucVu" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="MaPhongBan" class="control-label">Phòng Ban</label>
+                                    <select asp-for="MaPhongBan" class="form-control" asp-items="ViewBag.PhongBanList"></select>
+                                    <span asp-validation-for="MaPhongBan" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="TinhTrang" class="form-label cursor-move">Trạng Thái</label>
+                                    <select asp-for="TinhTrang" class="form-select" name="TinhTrang">
+                                        <option value="">---</option>
+                                        <option value="1">Đang Làm</option>
+                                        <option value="0">Nghỉ Việc</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="GiaDinh" class="form-label cursor-move">Tình Trạng Hôn Nhân</label>
+                                    <select asp-for="GiaDinh" class="form-select" name="GiaDinh">
+                                        <option value="">---</option>
+                                        <option value="1">Có GĐ</option>
+                                        <option value="0">Chưa Có GĐ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="HinhAnh" class="control-label">Hình Ảnh</label>
+                                    <input asp-for="HinhAnh" class="form-control" />
+                                    <span asp-validation-for="HinhAnh" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <div class="card-footer d-flex justify-content-end">
+                        <a class="btn btn-primary ms-3" style="text-decoration: none;"
+                           asp-action="Index">Quay Lại</a>
+                        <input type="submit" value="Lưu"  class="btn btn-primary ms-3"></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+

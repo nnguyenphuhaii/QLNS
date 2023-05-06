@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tiền Phong Media - Marketing cam kết hiệu quả</title>
+
+    <!-- Global stylesheets -->
+    <link href="~/assets/fonts/inter/inter.css" rel="stylesheet" />
+    <link href="~/assets/icons/phosphor/styles.min.css" rel="stylesheet" />
+    
+    <link href="~/assets/css/ltr/all.min.css" rel="stylesheet" />
+    <link href="~/assets/fontawesome-free-6.4.0-web/css/all.css" rel="stylesheet" />
+    <link href="~/assets/fontawesome-free-6.4.0-web/css/all.min.css" rel="stylesheet" />
+    <!-- /global stylesheets -->
+    <!-- Core JS files -->
+    <script src="~/assets/demo/demo_configurator.js"></script>
+    <script src="~/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- /core JS files -->
+    <!-- Theme JS files -->
+    <script src="~/assets/js/jquery/jquery.min.js"></script>
+    <script src="~/assets/js/app.js"></script>
+    @* <script src="~/assets/js/vendor/tables/datatables/datatables.min.js"></script>
+    <script src="~/assets/demo/pages/datatables_api.js"></script>*@
+
+    <script src="~/assets/js/vendor/visualization/d3/d3.min.js"></script>
+    <script src="~/assets/js/vendor/visualization/d3/d3_tooltip.js"></script>
+    <script src="~/assets/demo/pages/dashboard.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/streamgraph.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/sparklines.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/lines.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/areas.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/donuts.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/bars.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/progress.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/heatmaps.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/pies.js"></script>
+    <script src="~/assets/demo/charts/pages/dashboard/bullets.js"></script>
+    <!-- /theme JS files -->
+
+</head>
+
+<body>
+    <div class="page-content">
+        <div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg" style="width: 190px;">
+            <div class="sidebar-section">
+                <div class="sidebar-section-body d-flex justify-content-center">
+                    <div class="navbar-brand flex-1 flex-lg-0">
+                        <a href="index.html" class="d-inline-flex align-items-center">
+                            <img style="height: 45px" src="~/assets/images/logo.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-content">              
+             
+
+                <div class="sidebar-section">
+                    <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+                        <!-- Main -->
+                        <li class="nav-item-header pt-0">
+                            <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Main</div>
+                            <i class="ph-dots-three sidebar-resize-show"></i>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Home" asp-action="Index" class="nav-link active">
+                                <i class="ph-house"></i>
+                                <span>
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item-header">
+                            <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Danh Sách</div>
+                            <i class="ph-dots-three sidebar-resize-show"></i>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="ph-table"></i>
+                                <span>Báo Cáo</span>
+                            </a>
+                            <ul class="nav-group-sub collapse">
+                                <li class="nav-item"><a asp-controller="BaoCao" asp-action="Create" class="nav-link">Tạo</a></li>
+                                <li class="nav-item"><a asp-controller="BaoCao" asp-action="Index" class="nav-link">Xem Báo Cáo</a></li>
+                                <!--<li class="nav-item"><a href="table_borders.html" class="nav-link">Table borders</a></li>
+                                <li class="nav-item"><a href="table_styling.html" class="nav-link">Table styling</a></li>
+                                <li class="nav-item"><a href="table_elements.html" class="nav-link">Table elements</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="ph-table"></i>
+                                <span>Kế hoạch</span>
+                            </a>
+                            <ul class="nav-group-sub collapse">
+                                <li class="nav-item"><a asp-controller="KeHoach" asp-action="Create" class="nav-link">Tạo</a></li>
+                                <li class="nav-item"><a asp-controller="KeHoach" asp-action="Index" class="nav-link">Xem Kế Hoạch</a></li>
+                                <!-- <li class="nav-item"><a href="gridjs_server_side.html" class="nav-link">Server side</a></li>
+                                <li class="nav-item"><a href="gridjs_customizing.html" class="nav-link">Customizing</a></li>
+                                <li class="nav-item"><a href="gridjs_advanced.html" class="nav-link">Advanced</a></li> -->
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="ph-table"></i>
+                                <span>Hợp đồng</span>
+                            </a>
+                            <ul class="nav-group-sub collapse">
+                                <li class="nav-item"><a href="addHD.html" class="nav-link">Tạo Hợp Đồng</a></li>
+                                <li class="nav-item"><a href="ListHopDong.html" class="nav-link">Xem Hợp Đồng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="ph-table"></i>
+                                <span>Khách hàng</span>
+                            </a>
+                            <ul class="nav-group-sub collapse">
+                                <li class="nav-item"><a href="addKhachHang.html" class="nav-link">Thêm Khách Hàng</a></li>
+                                <li class="nav-item"><a href="ListKhachHang.html" class="nav-link">Danh Sách Khách Hàng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item-header">
+                            <div class="text-uppercase fs-sm lh-sm opacity-50 sidebar-resize-hide">Quản Lý</div>
+                            <i class="ph-dots-three sidebar-resize-show"></i>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="fa-sharp fa-solid fa-person"></i>
+                                <span>Nhân Viên</span>
+                            </a>
+                            <ul class="nav-group-sub collapse">
+                                <li class="nav-item"><a asp-controller="NhanVien" asp-action="Create" class="nav-link">Thêm</a></li>
+                                <li class="nav-item"><a asp-controller="NhanVien" asp-action="Index" class="nav-link">DS Nhân Viên</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item nav-item-submenu">
+                            <a href="#" class="nav-link">
+                                <i class="fa-sharp fa-solid fa-address-card"></i>
+                                <span>Tuyển dụng</span>
+                            </a>
+                            <ul class="nav-group-sub collapse">
+                                <li class="nav-item"><a href="ListUngVien.html" class="nav-link">Danh Sách Ứng Viên</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    
+    @RenderBody()
+
+
+    <div class="navbar navbar-sm navbar-footer border-top">
+        <div class="container-fluid">
+            <span>
+                Tiền Phong Media <a href="http://tienphongmedia.com.vn/">
+                </a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>

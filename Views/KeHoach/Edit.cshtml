@@ -1,0 +1,91 @@
+﻿@model QLNS.Models.CtKehoach
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="content-inner">
+        <div class="content">
+            <div class="card">
+                <h6 style="font-size: 30px; text-align: center;margin: 15px 0px;color:#0066FF; ">SỬA KẾ HOẠCH</h6>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IdkeHoach" />
+                    <fieldset style="margin: 15px !important;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label asp-for="NgayLap" class="control-label">Ngày Lập</label>
+                                <input asp-for="NgayLap" class="form-control" type="date" name="NgayLap">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="MaKh" class="control-label">Khách Hàng</label>
+                                    <select asp-for="MaKh" class="form-control" asp-items="ViewBag.KhachHangList"></select>
+                                    <span asp-validation-for="MaKh" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="MoTaCv" class="control-label">Mô Tả Công Việc</label>
+                                    <textarea asp-for="MoTaCv" style="height: 100px" class="form-control"></textarea>
+                                    <span asp-validation-for="MoTaCv" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="KhchamSoc" class="control-label">Chăm Sóc</label>
+                                    <textarea asp-for="KhchamSoc" style="height: 100px" class="form-control"></textarea>
+                                    <span asp-validation-for="KhchamSoc" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <label asp-for="Idlh" class="control-label">Số KH Mới Cần Liên Hệ</label>
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <div class="mb-3">
+                                            <select asp-for="Idlh" class="form-control" asp-items="ViewBag.LienHeList"></select>
+                                            <span asp-validation-for="Idlh" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="DongNghiep" class="control-label">Đồng Nghiệp</label>
+                                    <input asp-for="DongNghiep" class="form-control" />
+                                    <span asp-validation-for="DongNghiep" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="HocTap" class="control-label">Học Tập</label>
+                                    <input asp-for="HocTap" class="form-control" />
+                                    <span asp-validation-for="HocTap" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="CamKet" class="control-label">Cam Kết</label>
+                                    <input asp-for="CamKet" class="form-control" />
+                                    <span asp-validation-for="CamKet" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <div class="card-footer d-flex justify-content-end">
+                        <a class="btn btn-primary ms-3" style="text-decoration: none;"
+                           asp-action="Index">Quay Lại</a>
+                        <input type="submit" value="Lưu" class="btn btn-primary ms-3"></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+

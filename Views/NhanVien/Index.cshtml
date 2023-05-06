@@ -1,0 +1,208 @@
+﻿@model IEnumerable<QLNS.Models.Nhanvien>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main content -->
+<div class="content-wrapper">
+
+    <!-- Inner content -->
+    <div class="content-inner">
+
+        <!-- Page header -->
+        <div class="page-header page-header-light shadow">
+            <div class="page-header-content d-lg-flex">
+                <div class="d-flex">
+                    <h4 class="page-title mb-0">
+                        Quản Lý - <span class="fw-normal">Nhân Viên</span>
+                    </h4>
+
+                    <a href="#page_header"
+                       class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
+                       data-bs-toggle="collapse">
+                        <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    </a>
+                </div>
+
+                <ul class="nav flex-row justify-content-end order-1 order-lg-2">
+                    <li class="nav-item nav-item-dropdown-lg dropdown ms-lg-2">
+                        <a href="#" class="navbar-nav-link align-items-center rounded-pill p-1" data-bs-toggle="dropdown">
+                            <div class="status-indicator-container">
+                                <img src="../../../assets/images/demo/users/face11.jpg" class="w-32px h-32px rounded-pill"
+                                     alt="">
+                                <span class="status-indicator bg-success"></span>
+                            </div>
+                            <span class="d-none d-lg-inline-block mx-lg-2">Victoria</span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="#" class="dropdown-item">
+                                <i class="ph-user-circle me-2"></i>
+                                My profile
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ph-currency-circle-dollar me-2"></i>
+                                My subscription
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ph-shopping-cart me-2"></i>
+                                My orders
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ph-envelope-open me-2"></i>
+                                My inbox
+                                <span class="badge bg-primary rounded-pill ms-auto">26</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="ph-gear me-2"></i>
+                                Account settings
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="ph-sign-out me-2"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="collapse d-lg-block ms-lg-auto" id="breadcrumb_elements">
+                    <div class="d-lg-flex mb-2 mb-lg-0">
+                        <a href="#" class="d-flex align-items-center text-body py-2">
+                            <i class="ph-lifebuoy me-2"></i>
+                            Support
+                        </a>
+
+                        <div class="dropdown ms-lg-3">
+                            <a href="#" class="d-flex align-items-center text-body dropdown-toggle py-2"
+                               data-bs-toggle="dropdown">
+                                <i class="ph-gear me-2"></i>
+                                <span class="flex-1">Settings</span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end w-100 w-lg-auto">
+                                <a href="#" class="dropdown-item">
+                                    <i class="ph-shield-warning me-2"></i>
+                                    Account security
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="ph-chart-bar me-2"></i>
+                                    Analytics
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="ph-lock-key me-2"></i>
+                                    Privacy
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="ph-gear me-2"></i>
+                                    All settings
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header-content d-lg-flex border-top">
+                <div class="d-flex">
+                    <div class="breadcrumb py-2">
+                        <a href="/" class="breadcrumb-item"><i class="ph-house"></i></a>
+                        <span class="breadcrumb-item active">Quản Lý</span>
+                        <span class="breadcrumb-item active">Danh Sách Nhân Viên</span>
+                    </div>
+
+                    <a href="#breadcrumb_elements"
+                       class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
+                       data-bs-toggle="collapse">
+                        <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    </a>
+                </div>          
+            </div>
+        </div>
+        <!-- /page header -->
+        <div class="content">
+            <!-- Single row selection -->
+            <div class="card">
+                <div class="card-body">
+                    <a asp-action="Create">Thêm Nhân Viên</a>
+                </div>
+                <table class="table datatable-selection-single">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span>Tên NV</span>
+                            </th>
+                            <th>
+                                <span>Giới Tính</span>
+                            </th>
+                            <th>
+                                <span>Email</span>
+                            </th>
+                            <th>
+                               <span>Tình Trạng</span>
+                            </th>
+                             <th>
+                               <span>Chức Vụ</span>
+                            </th>
+                            <th>
+                                <span>Phòng Ban</span>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.MaNv">@Html.DisplayFor(modelItem => item.TenNv)</a>
+                                </td>
+                                <td>
+                                    @if (item.GioiTinh == 1)
+                                    {
+                                        <span>Nam</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Nữ</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @if (item.TinhTrang == 1)
+                                    {
+                                        <span>Đang Làm</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Nghỉ Làm</span>
+                                    }
+                                </td>
+
+                                <td>
+                                    @if (item.MaChucVuNavigation != null)
+                                    {
+                                        @item.MaChucVuNavigation.TenChucVu
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.MaPhongBanNavigation != null)
+                                    {
+                                        @item.MaPhongBanNavigation.TenPhongBan
+                                    }
+                                </td>
+
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.MaNv"><i class="fa-solid fa-pen-to-square"></i></a>                                  
+                                    <a asp-action="Delete" asp-route-id="@item.MaNv" onclick="return confirm('Bạn có chắc muốn xóa không?')"><i class="fa-solid fa-trash-can"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>

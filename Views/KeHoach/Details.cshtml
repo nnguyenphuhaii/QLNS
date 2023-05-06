@@ -1,0 +1,84 @@
+﻿@model QLNS.Models.CtKehoach
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content-inner">
+        <div class="content">
+            <div class="card">
+                <h6 style="font-size: 30px; text-align: center;margin: 15px 0px;color: #0066FF; ">CHI TIẾT KẾ HOẠCH</h6>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="IdkeHoach" />
+                    <fieldset style="margin: 15px !important;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label style="color: #FF0000" asp-for="NgayLap" class="form-label">Ngày Lập: </label>
+                                <span>@Model.NgayLap.ToString("dd/MM/yyyy").Replace(" ","/")</span>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label style="color: #FF0000" asp-for="MaKh" class="form-label">Khách Hàng: </label>
+                                    @if (Model.MaKhNavigation != null)
+                                    {
+                                        @Html.DisplayFor(model => model.MaKhNavigation.TenKh)
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label style="color: #FF0000" asp-for="MoTaCv" class="form-label cursor-move">Mô Tả CV: </label>
+                                    @Html.DisplayFor(model => model.MoTaCv)
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label style="color: #FF0000" asp-for="KhchamSoc" class="form-label cursor-move">KH Chăm Sóc: </label>
+                                    @Html.DisplayFor(model => model.KhchamSoc)
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Idlh" class="form-label">Số KH Mới Cần Liên Hệ: </label>
+                                    @if (Model.IdlhNavigation != null)
+                                    {
+                                        @Html.DisplayFor(model => model.IdlhNavigation.SoKhlh)
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label style="color: #FF0000" asp-for="DongNghiep" class="form-label cursor-move">Đồng Nghiệp: </label>
+                                    @Html.DisplayFor(model => model.DongNghiep)
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label style="color: #FF0000" asp-for="HocTap" class="form-label cursor-move">Học Tập: </label>
+                                    @Html.DisplayFor(model => model.HocTap)
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label style="color: #FF0000" asp-for="CamKet" class="form-label cursor-move">Cam Kết: </label>
+                                    @Html.DisplayFor(model => model.CamKet)
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="card-footer d-flex justify-content-end">
+                        <a class="btn btn-primary ms-3" style="text-decoration: none;"
+                           asp-action="Index">Quay Lại</a>
+                        <a class="btn btn-primary ms-3" style="text-decoration: none;"
+                           asp-action="Edit" asp-route-id="@Model?.IdkeHoach">Sửa</a>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>

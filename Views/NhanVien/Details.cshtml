@@ -1,0 +1,138 @@
+﻿@model QLNS.Models.Nhanvien
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content-inner">
+        <div class="content">
+            <div class="card">
+                <h6 style="font-size: 30px; text-align: center;margin: 15px 0px;color:#0066FF; ">THÔNG TIN NHÂN VIÊN</h6>
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="MaNv" />
+                    <fieldset style="margin: 15px !important;">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label asp-for="TenNv" class="form-label">Họ Và Tên: </label>
+                                @Html.DisplayFor(model => model.TenNv)
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="GioiTinh" class="form-label cursor-move">Giới Tính: </label>
+                                    @if (Model.GioiTinh == 1)
+                                    {
+                                        <span>Nam</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Nữ</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Email" class="form-label cursor-move">Email: </label>
+                                    @Html.DisplayFor(model => model.Email)
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Sdt" class="form-label cursor-move">Số điện thoại: </label>
+                                    @Html.DisplayFor(model => model.Sdt)
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="DiaChi" class="form-label cursor-move">Địa chỉ: </label>
+                                    @Html.DisplayFor(model => model.DiaChi)
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="NgaySinh" class="form-label cursor-move">Ngày sinh: </label>
+                                    <span>@Model.NgaySinh.ToString("dd/MM/yyyy").Replace(" ","/")</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="NoiSinh" class="form-label cursor-move">Nơi sinh: </label>
+                                    @Html.DisplayFor(model => model.NoiSinh)
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="Cccd" class="form-label cursor-move">CCCD: </label>
+                                    @Html.DisplayFor(model => model.Cccd)
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="MaChucVu" class="form-label">Chức vụ: </label>
+                                    @if (Model.MaChucVuNavigation != null)
+                                    {
+                                        @Html.DisplayFor(model => model.MaChucVuNavigation.TenChucVu)
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="MaPhongBan" class="form-label">Phòng Ban: </label>
+                                    @if (Model.MaPhongBanNavigation != null)
+                                    {
+                                        @Html.DisplayFor(model => model.MaPhongBanNavigation.TenPhongBan)
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="TinhTrang" class="form-label cursor-move">Tình Trạng: </label>
+                                    @if (Model.TinhTrang == 1)
+                                    {
+                                        <span>Đang Làm</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Nghỉ Làm</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="GiaDinh" class="form-label cursor-move">Tình Trạng Hôn Nhân: </label>
+                                    @if (Model.GiaDinh == 1)
+                                    {
+                                        <span>Có Gia Đình</span>
+                                    }
+                                    else
+                                    {
+                                        <span>Chưa Có Gia Đình</span>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label asp-for="HinhAnh" class="control-label"></label>
+                                    <img src="@Url.Content(Model.HinhAnh)" class="img-thumbnail" />
+                                    <span asp-validation-for="HinhAnh" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="card-footer d-flex justify-content-end">
+                        <a class="btn btn-primary ms-3" style="text-decoration: none;"
+                           asp-action="Index">Previous</a>
+                        <a class="btn btn-primary ms-3" style="text-decoration: none;"
+                           asp-action="Edit" asp-route-id="@Model?.MaNv">Edit</a>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
